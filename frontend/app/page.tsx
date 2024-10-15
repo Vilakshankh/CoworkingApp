@@ -7,12 +7,31 @@ export default function Component() {
   const [email, setEmail] = useState('')
   const [submitted, setSubmitted] = useState(false)
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault() //prevent the page from refreshing after form submit
     // Here you would typically send the email to your backend
-    console.log('Submitted email:', email)
-    setSubmitted(true)
-    setEmail('')
+
+    const formData = {email};
+
+    try{
+      const response = await fetch('http://localhost:5000/api/users', 
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok){
+        setSubmitted(true)
+        setEmail('')
+      }else{
+        console.error('Failed to submit form');
+      }
+    } catch (error) {
+      console.error('Error Submitting form:', error);
+    }
   }
 
   return (
@@ -33,7 +52,7 @@ export default function Component() {
             <Input
               type="email"
               placeholder="Enter your email"
-              value={email}
+              value= {email}
               onChange={(e) => setEmail(e.target.value)}
               required
               className="w-full border-blue-700 border-2"
