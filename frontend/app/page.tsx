@@ -14,7 +14,7 @@ export default function Component() {
     const formData = {email};
 
     try{
-      const response = await fetch('http://localhost:5000/api/users', 
+      const response = await fetch('https://v6wrjkpqnb.execute-api.us-east-2.amazonaws.com/dev/users', 
       {
         method: 'POST',
         headers: {
