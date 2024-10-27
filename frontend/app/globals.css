@@ -2,14 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'LondrinaSolid-Black';
+  src: url('fonts/LondrinaSolid-Regular.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
 body {
   font-family: Helvetica, sans-serif;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
   margin: 0;
+  height: 100vh;
+  color: white;
 }
+
 div {
   text-align: center; /* This ensures the text and content inside the div are centered */
 }
