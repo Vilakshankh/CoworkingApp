@@ -8,15 +8,11 @@ export default function Component() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   const images = [
-    '/media/butterfly-background1.jpg',
-    '/media/butterfly-background2.jpg',
-    '/media/butterfly-background3.jpg',
-    '/media/butterfly-background4.jpg',
-    '/media/butterfly-background5.jpg',
-    '/media/butterfly-background6.jpg',
-    '/media/butterfly-background7.jpg',
-    '/media/butterfly-background8.jpg',
-    '/media/butterfly-background9.jpg',
+    'media/butterfly-background1.jpg',
+    'media/butterfly-background2.jpg',
+    'media/butterfly-background5.jpg',
+    'media/butterfly-background7.jpg',
+    'media/butterfly-background9.jpg',
   ];
 
   useEffect(() => {
