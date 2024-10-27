@@ -2,8 +2,32 @@
 import { useState } from 'react'
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
+import { useEffect } from 'react';
 
 export default function Component() {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  const images = [
+    '/media/butterfly-background1.jpg',
+    '/media/butterfly-background2.jpg',
+    '/media/butterfly-background3.jpg',
+    '/media/butterfly-background4.jpg',
+    '/media/butterfly-background5.jpg',
+    '/media/butterfly-background6.jpg',
+    '/media/butterfly-background7.jpg',
+    '/media/butterfly-background8.jpg',
+    '/media/butterfly-background9.jpg',
+  ];
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      // Update the image index every 30 seconds
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, 30000); // 30 seconds interval
+
+    return () => clearInterval(intervalId); // Clean up the interval on component unmount
+  }, [images.length]);
+
   const [email, setEmail] = useState('')
   const [submitted, setSubmitted] = useState(false)
 
@@ -35,14 +59,28 @@ export default function Component() {
   }
 
   return (
-    <div className="flex flex-col items-center justify-center">
+    <div
+      className="flex items-start justify-start h-screen w-screen"
+      style={{
+        backgroundImage: `url(${images[currentImageIndex]})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+      }}
+    >
+    <div className="pl-24 pt-24 flex flex-col items-start justify-start">
+
       <div className="max-w-md w-full space-y-8 text-start">
-        <h1 className="text-blue-700 text-9xl font-extrabold tracking-tight text-primary animate-in slide-in-from-bottom duration-500">
-          The Butterfly Project.
-        </h1>
-        <p className="text-2xl text-black animate-in slide-in-from-bottom duration-500 delay-150">
+        <h1 
+          className="text-9xl  tracking-tight text-primary animate-in slide-in-from-bottom duration-500"
+          style={{ fontFamily: "'LondrinaSolid-Black', sans-serif", color: 'white' } }
+          >
+            The Butterfly Project.
+          </h1>
+
+        <p className="text-2xl animate-in slide-in-from-bottom duration-500 delay-150">
         Match with coworking buddies and work together from cafes. </p>
-        <p className="text-1xl text-black animate-in slide-in-from-bottom duration-500 delay-300">
+        <p className="text-1xl  animate-in slide-in-from-bottom duration-500 delay-300">
         
         Join the waitlist and take the first step towards building your coworking profile. 
                 
@@ -55,7 +93,7 @@ export default function Component() {
               value= {email}
               onChange={(e) => setEmail(e.target.value)}
               required
-              className="w-full border-blue-700 border-2"
+              className="w-full border-blue-700 border-2 bg-white"
             />
             <Button type="submit" className="w-full button-color bg-blue-700">
               Create My Aura
@@ -68,6 +106,7 @@ export default function Component() {
           </div>
         )}
       </div>
+    </div>
     </div>
   )
 }
