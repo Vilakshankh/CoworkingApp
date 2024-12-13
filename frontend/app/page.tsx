@@ -7,16 +7,16 @@ export default function LandingPage() {
       <div className="absolute inset-0 bg-black/40" />
       <div className="relative z-10 max-w-2xl mx-auto text-center space-y-8">
         <h1 className="text-3xl md:text-4xl lg:text-5xl font-medium leading-tight">
-          we match you with people to cowork together from a cafe ☕
+          we match you with people to cowork together from a cafe
         </h1>
         
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <Button
             asChild
             variant="outline"
-            className="bg-white/10 text-white border-white hover:bg-white/20 w-full sm:w-auto"
+            className="bg-white/10 text-white border-white hover:bg-white/20 w-full sm:w-auto rounded-none"
           >
-            <Link href="/create-profile">
+            <Link href="createProfile/identityQuestions">
               create my profile
             </Link>
           </Button>
@@ -24,7 +24,7 @@ export default function LandingPage() {
           <Button
             asChild
             variant="outline"
-            className="bg-white/10 text-white border-white hover:bg-white/20 w-full sm:w-auto"
+            className="bg-white/10 text-white border-white hover:bg-white/20 w-full sm:w-auto rounded-none"
           >
             <Link href="/get-matched">
               check out events
