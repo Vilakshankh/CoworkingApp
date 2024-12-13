@@ -3,10 +3,11 @@ import { Button } from "@/components/ui/button"
 
 export default function LandingPage() {
   return (
-    <main className="relative min-h-screen flex flex-col items-center justify-center bg-[#7C3AED] text-white px-4 overflow-hidden">
+    <main className="relative min-h-screen flex flex-col items-center justify-center bg-[url('/media/background.png')] bg-cover bg-center text-white px-4 overflow-hidden">
+      <div className="absolute inset-0 bg-black/40" />
       <div className="relative z-10 max-w-2xl mx-auto text-center space-y-8">
         <h1 className="text-3xl md:text-4xl lg:text-5xl font-medium leading-tight">
-          we match you with people to cowork together from a cafe
+          we match you with people to cowork together from a cafe ☕
         </h1>
         
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -16,7 +17,7 @@ export default function LandingPage() {
             className="bg-white/10 text-white border-white hover:bg-white/20 w-full sm:w-auto"
           >
             <Link href="/create-profile">
-              create a profile
+              create my profile
             </Link>
           </Button>
           
@@ -26,7 +27,7 @@ export default function LandingPage() {
             className="bg-white/10 text-white border-white hover:bg-white/20 w-full sm:w-auto"
           >
             <Link href="/get-matched">
-              get matched
+              check out events
             </Link>
           </Button>
         </div>
