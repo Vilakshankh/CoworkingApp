@@ -40,7 +40,7 @@ export default function CreateProfile() {
           <div className="space-y-2 text-white text-left">
             <h1 className="text-2xl font-medium">tell us about yourself.</h1>
             <p className="text-white/60">
-              we'll use this information to match you with your work buddy.
+              we&apos;ll use this information to match you with your work buddy.
             </p>
           </div>
 
